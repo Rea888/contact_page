@@ -5,10 +5,10 @@ namespace App\Entity;
 use App\Repository\CustomerRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: CustomerRepository::class)]
-#[UniqueEntity('email')]
 class Customer
 {
     #[ORM\Id]
@@ -17,12 +17,15 @@ class Customer
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Hiba! Kérjük töltsd ki az összes mezőt.')]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255, unique: true)]
+    #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Hiba! Kérjük töltsd ki az összes mezőt.')]
     private ?string $email = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'Hiba! Kérjük töltsd ki az összes mezőt.')]
     private ?string $content = null;
 
     public function getId(): ?int
