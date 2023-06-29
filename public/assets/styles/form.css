@@ -1,0 +1,43 @@
+
+.name-label,
+.email-label,
+.content-label {
+    margin-bottom: 1vh;
+}
+#home-contact{
+    background: #c39532;
+}
+
+#head-line{
+    background: #555555;
+    height: 10vh;
+    color: #c39532;
+}
+#first-column{
+    padding: 0;
+    margin: 0;
+}
+
+#background-img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    background: #2f302a;
+}
+
+input.error {
+    background: url('../img/exclamationmark.png') no-repeat right center;
+}
+textarea.error {
+    background: url('../img/exclamationmark.png') no-repeat right center;
+}
+
+.footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #555555;
+}
+

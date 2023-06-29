@@ -2,25 +2,83 @@
 
 {% block title %}Contact Form{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/styles/form.css') }}">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnzCM4-p3gmjFoz-exj9NkYhhpbe7GgwY&amp;sensor=false&amp;language=hu"
+            type="text/javascript"></script>
+{% endblock %}
+
 {% block body %}
 
-
-    <h3>Kérdezz tőlünk</h3>
-    <div>
-        {{ form_start(form) }}
-        {{ form_label(form) }}
-        {{ form_errors(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+    <div class="container-fluid d-flex align-items-center justify-content-center" id="head-line">
+        <h3>Kérdezz tőlünk</h3>
     </div>
-    <div>
 
+    <div class="container mt-5" id="home-contact">
+        <div class="row">
+            <div class="col-md-8 d-flex align-items-center justify-content-center" id="first-column">
+                <img src="{{ asset('assets/img/contactImg.jpg') }}" alt="Your Image" id="background-img">
+                <div class="align-self-center">
+                </div>
+            </div>
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <div class="col ">
+                    {{ form_start(form) }}
+
+                    <div class="form-group mt-2 mb-5">
+                        {{ form_label(form.name) }}
+                        <div class="row">
+                            {{ form_widget(form.name, { 'attr': {'class': form.name.vars.errors is empty ? '' : 'error'} }) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-5">
+                        {{ form_label(form.email) }}
+                        <div class="row">
+                            {{ form_widget(form.email, { 'attr': {'class': form.email.vars.errors is empty ? '' : 'error'} }) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-5">
+                        {{ form_label(form.content) }}
+                        <div class="row">
+                            {{ form_widget(form.content, { 'attr': {'class': form.content.vars.errors is empty ? '' : 'error'} }) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-5">
+                        <div class="row">
+                        {{ form_widget(form.send) }}
+                        </div>
+                    </div>
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
     </div>
+
+
     {% for message in app.flashes('success') %}
-    <div class="alert alert-success">
-        {{ message }}
-    </div>
+        <div class="alert alert-success container-fluid d-flex align-items-center justify-content-center">
+            {{ message }}
+        </div>
     {% endfor %}
+
+    {% if app.flashes('form_submitted') %}
+        <div class="alert alert-danger container-fluid d-flex align-items-center justify-content-center mb-5" id="error">
+            {% for error in errorArray %}
+                {{ error }}<br>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="footer-bar"></div>
 
 
 {% endblock %}
+
+
+
+

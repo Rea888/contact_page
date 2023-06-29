@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
+
 #[ORM\Entity(repositoryClass: CustomerRepository::class)]
 class Customer
 {
@@ -21,6 +22,7 @@ class Customer
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Email(message: 'Hiba! Nem valid e-mail cím.')]
     #[Assert\NotBlank(message: 'Hiba! Kérjük töltsd ki az összes mezőt.')]
     private ?string $email = null;
 
