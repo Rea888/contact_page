@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact Form{% endblock %}
+
+{% block body %}
+
+
+    <h3>Kérdezz tőlünk</h3>
+    <div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+
+
+{% endblock %}

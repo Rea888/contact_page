@@ -7,7 +7,7 @@ services:
     environment:
       MARIADB_DATABASE: customer
       MARIADB_USER: app
-      MARIADB_ROOT_PASSWORD: root
+      MARIADB_ROOT_PASSWORD: TestPass12345
       MARIADB_PASSWORD: TestPass12345
 
     volumes:
