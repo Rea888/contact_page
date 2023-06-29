@@ -34,17 +34,12 @@ class CustomerController extends AbstractController
             $customer = $form->getData();
 
             $this->customerRepository->save($customer, true);
-            return $this->redirectToRoute('customer_success');
+            $this->addFlash('success', 'Köszönjük szépen a kérdésedet. Válaszunkkal hamarosan keresünk a megadott e-mail címen.');
+            return $this->redirectToRoute('app_customer');
         }
 
         return $this->render('customer/index.html.twig', [
             'form' => $form->createView(),
         ]);
-    }
-
-    #[Route('/customer/succeed', name: 'customer_success')]
-    public function succeed()
-    {
-        return $this->render('customer/success.html.twig');
     }
 }

@@ -8,9 +8,19 @@
     <h3>Kérdezz tőlünk</h3>
     <div>
         {{ form_start(form) }}
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
         {{ form_widget(form) }}
         {{ form_end(form) }}
     </div>
+    <div>
+
+    </div>
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+    {% endfor %}
 
 
 {% endblock %}
