@@ -6,11 +6,13 @@ services:
     image: mariadb:10.11
     container_name: mariadb
     restart: unless-stopped
+    env_file:
+      - .docker.env
     environment:
-      MYSQL_ROOT_PASSWORD: TestPass12345
-      MYSQL_DATABASE: customer
-      MYSQL_USER: app
-      MYSQL_PASSWORD: TestPass12345
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - mariadb:/var/lib/mysql
 
@@ -28,7 +30,7 @@ services:
     image: nginx:alpine
     container_name: nginx
     ports:
-      - 8080:80
+      - 80:80
     volumes:
       - ./:/var/www
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
