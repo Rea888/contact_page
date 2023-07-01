@@ -19,6 +19,12 @@ class Customer
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Hiba! Kérjük töltsd ki az összes mezőt.')]
+    #[Assert\Length(
+        min: 3,
+        max: 100,
+        minMessage: "Hiba! Név minimum 3 karakter",
+        maxMessage: "Hiba! Név maximum 100 karakter"
+    )]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
@@ -28,6 +34,12 @@ class Customer
 
     #[ORM\Column(type: Types::TEXT)]
     #[Assert\NotBlank(message: 'Hiba! Kérjük töltsd ki az összes mezőt.')]
+    #[Assert\Length(
+        min: 10,
+        max: 5000,
+        minMessage: "Hiba! Üzenet szövege minimum 10 karakter",
+        maxMessage: "Hiba! Üzenet szövege maximum 5000 karakter"
+    )]
     private ?string $content = null;
 
     public function getId(): ?int
