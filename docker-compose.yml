@@ -22,7 +22,6 @@ services:
     container_name: php
     volumes:
       - ./:/var/www
-      - ./var:/var/www/var
     depends_on:
       - database
 
