@@ -24,7 +24,7 @@ class CustomerController extends AbstractController
     }
 
 
-    #[Route('/customer/index', name: 'app_customer')]
+    #[Route('/', name: 'app_customer')]
     public function saveDataToDb(Request $request): Response
     {
         $customer = new Customer();
