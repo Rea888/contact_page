@@ -41,17 +41,27 @@ inputFields.forEach(inputField => {
 
 $(document).ready(function () {
     var maxChars = 500;
-    $('.textarea-field').each(function() {
+    var $textareaField = $('.textarea-field');
+
+    $textareaField.each(function() {
         var length = $(this).val().length;
         var remaining = maxChars - length;
         var counterId = $(this).data('counter');
         $(counterId).html(remaining + ' / ' + maxChars);
+        if(remaining <= 0){
+            $(counterId).addClass('limit-reached');
+        }
     });
 
-    $('.textarea-field').on('input', function () {
+    $textareaField.on('input', function () {
         var length = $(this).val().length;
         var remaining = maxChars - length;
         var counterId = $(this).data('counter');
+        if(remaining <= 0){
+            $(counterId).addClass('limit-reached');
+        }else{
+            $(counterId).removeClass('limit-reached');
+        }
         $(counterId).html(remaining + ' / ' + maxChars);
     });
 });

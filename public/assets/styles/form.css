@@ -86,7 +86,9 @@ body {
     text-align: right;
     color: #666;
 }
-
+.limit-reached {
+    color: red;
+}
 
 
 @keyframes pulse {
