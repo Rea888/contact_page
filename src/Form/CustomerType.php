@@ -18,21 +18,26 @@ class CustomerType extends AbstractType
         $builder
             ->add('name', TextType::class, array(
                 'required' => false,
-                'label' => 'Név'
+                'attr' => array(
+                    'placeholder' => ' Név',
+                ),
             ))
             ->add('email', EmailType::class, array(
                 'required' => false,
-                'label' => 'E-mail'
+                'attr' => array(
+                    'placeholder' => 'E-mail',
+                ),
             ))
             ->add('content', TextareaType::class, array(
                 'required' => false,
-                'label' => 'Üzenet szövege'
+                'attr' => array(
+                    'placeholder' => 'Üzenet szövege',
+                    'style' => 'padding-top:10px;',
+                ),
             ))
             ->add('send', SubmitType::class, array(
-                'attr' => array('class' => 'send'),
                 'label' => 'Küldés'
-            ))
-        ;
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver): void

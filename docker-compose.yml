@@ -1,22 +1,41 @@
-version: '3'
+version: '3.8'
 
 services:
-###> doctrine/doctrine-bundle ###
-  database:
-    image: mariadb:latest
-    environment:
-      MARIADB_DATABASE: customer
-      MARIADB_USER: app
-      MARIADB_ROOT_PASSWORD: TestPass12345
-      MARIADB_PASSWORD: TestPass12345
 
+  database:
+    image: mariadb:10.11
+    container_name: mariadb
+    restart: unless-stopped
+    env_file:
+      - .docker.env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - database_data:/var/lib/mysql:rw
-      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
-      # - ./docker/db/data:/var/lib/postgresql/data:rw
-###< doctrine/doctrine-bundle ###
+      - mariadb:/var/lib/mysql
+
+  php:
+    build:
+      context: ./docker/php
+    container_name: php
+    volumes:
+      - ./:/var/www
+      - ./var:/var/www/var
+    depends_on:
+      - database
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
 
 volumes:
-###> doctrine/doctrine-bundle ###
-  database_data:
-###< doctrine/doctrine-bundle ###
+  mariadb:

@@ -9,42 +9,53 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class CustomerController extends AbstractController
 {
 
     private CustomerRepository $customerRepository;
+    private ValidatorInterface $validator;
 
-    public function __construct(CustomerRepository $customerRepository)
+    public function __construct(CustomerRepository $customerRepository, ValidatorInterface $validator)
     {
         $this->customerRepository = $customerRepository;
+        $this->validator = $validator;
     }
 
 
-    #[Route('/customer/index', name: 'app_customer')]
+    #[Route('/', name: 'app_customer')]
     public function saveDataToDb(Request $request): Response
     {
-
         $customer = new Customer();
 
         $form = $this->createForm(CustomerType::class, $customer);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
 
-            $customer = $form->getData();
+        if ($form->isSubmitted()) {
+            if ($form->isValid()) {
+                $customer = $form->getData();
 
-            $this->customerRepository->save($customer, true);
-            return $this->redirectToRoute('customer_success');
+                $this->customerRepository->save($customer, true);
+                $this->addFlash('success', 'Köszönjük szépen a kérdésedet. Válaszunkkal hamarosan keresünk a megadott e-mail címen.');
+                return $this->redirectToRoute('app_customer');
+            } else {
+                $this->addFlash('form_submitted', true);
+            }
         }
+
+        $errors = $this->validator->validate($customer);
+
+        $errorArray = [];
+        foreach ($errors as $violation) {
+            $errorArray[] = $violation->getMessage();
+        }
+
+        $errorArray = array_unique($errorArray);
 
         return $this->render('customer/index.html.twig', [
             'form' => $form->createView(),
+            'errorArray' => $errorArray,
         ]);
-    }
-
-    #[Route('/customer/succeed', name: 'customer_success')]
-    public function succeed()
-    {
-        return $this->render('customer/success.html.twig');
     }
 }
