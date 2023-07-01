@@ -1,39 +1,37 @@
-let img = document.querySelector('.img-movable');
+/**
+ * Question marks around image
+ */
 
-img.addEventListener("mousemove", function(e) {
-    let rect = this.getBoundingClientRect();
-    let width = this.offsetWidth;
-    let height = this.offsetHeight;
-    let halfWidth = width / 2;
-    let halfHeight = height / 2;
-    let xAxis, yAxis;
+$(document).ready(function(){
+    let imgContainer = $(".img-container");
 
-    let mouseX = e.pageX - rect.left;
-    let mouseY = e.pageY - rect.top;
+    $("#background-img").hover(function(){
+        for (let i = 1; i <= 10; i++) {
+            let randomX = Math.floor(Math.random() * imgContainer.width());
+            let randomY = Math.floor(Math.random() * imgContainer.height());
 
-    if (mouseX < halfWidth && mouseY < halfHeight) {
-        // top left corner
-        xAxis = -(halfWidth - mouseX) / 10;
-        yAxis = -(halfHeight - mouseY) / 10;
-    } else if (mouseX > halfWidth && mouseY < halfHeight) {
-        // top right corner
-        xAxis = (mouseX - halfWidth) / 10;
-        yAxis = -(halfHeight - mouseY) / 10;
-    } else if (mouseX < halfWidth && mouseY > halfHeight) {
-        // bottom left corner
-        xAxis = -(halfWidth - mouseX) / 10;
-        yAxis = (mouseY - halfHeight) / 10;
-    } else {
-        // bottom right corner
-        xAxis = (mouseX - halfWidth) / 10;
-        yAxis = (mouseY - halfHeight) / 10;
-    }
-
-    this.style.transform = `rotate3d(${xAxis}, ${yAxis}, 0, 10deg)`;
+            $("#qm" + i).css({
+                "left": randomX,
+                "top": randomY
+            }).fadeIn();
+        }
+    }, function(){
+        $(".question-mark").fadeOut();
+    });
 });
 
-img.addEventListener('mouseleave', function() {
-    this.style.transform = `rotate3d(0, 0, 0, 0deg)`;
+
+/**
+ * Disappear exclamation marks on focus
+ * @type {NodeListOf<Element>}
+ */
+
+let inputFields = document.querySelectorAll('.input-field, .textarea-field');
+
+inputFields.forEach(inputField => {
+    inputField.addEventListener('focus', function () {
+        this.classList.remove('error');
+    });
 });
 
 

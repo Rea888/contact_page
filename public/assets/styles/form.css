@@ -19,15 +19,12 @@ body {
 .full-vh {
     height: 100vh;
 }
-
 #background-img {
     object-fit: cover;
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     background: white;
     border-radius: 20px;
-    display: block;
-    margin: auto;
 }
 
 #first-column {
@@ -35,46 +32,66 @@ body {
     margin: 0;
 }
 
+.img-container {
+    position: relative;
+    width: 50%; /* Adjust these values as needed */
+    height: 50%;
+}
+
+.question-mark {
+    position: absolute;
+    display: none;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff1491;
+}
+
+
+
 #second-column {
     padding-right: 11vw;
     display: block;
     margin-top: 5vh;
 }
 
-.input-field {
-    height: 50px;
+.input-field, .textarea-field {
     border-radius: 30px;
     background-color:#e6e6e6;
     border:#e6e6e6;
     padding-left: 25px;
 }
 
-
-.input-field.error {
-    border-radius: 30px;
-    background-color: #e6e6e6;
-    padding-left: 25px;
-}
-
-
-input.error {
-    background: url('../img/exclamationmark.png') no-repeat calc(100% - 10px) center;
-
+.input-field {
+    height: 50px;
 }
 
 .textarea-field {
     height: 150px;
-    border-radius: 30px;
-    background-color: #e6e6e6;
-    border: #e6e6e6;
-    padding-left: 25px;
 }
 
-textarea.error {
-    background: url('../img/exclamationmark.png') no-repeat calc(100% - 10px) center;
-    height: 150px;
-
+.input-field.error, .textarea-field.error {
+    background-color:#e6e6e6;
+    background-image: url('../img/exclamationmark.png');
+    background-repeat: no-repeat;
+    background-position: right center;
 }
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0,123,255,0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(0,123,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,123,255,0); }
+}
+
+.input-field:focus {
+    outline: none;
+    animation: pulse 1s;
+}
+
+.textarea-field:focus {
+    outline: none;
+    animation: pulse 1s;
+}
+
 
 .send {
     height: 60px;
@@ -92,7 +109,8 @@ textarea.error {
 #success{
  background: #1f42e0;
     color: white;
-    width: 20px;
+    width: 900px;
+    border-radius: 30px;
 }
 
 #error{
@@ -101,7 +119,6 @@ textarea.error {
     color: white;
     width: 600px;
     border-radius: 30px;
-
 }
 
 

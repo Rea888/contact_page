@@ -13,9 +13,15 @@
         <div class="container mt-5" id="home-contact">
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-center" id="first-column">
-                    <div class="align-self-center">
+                    <div class="img-container align-self-center">
                         <img src="{{ asset('assets/img/envelope6.png') }}" alt="Boríték" id="background-img"
                              class="img-movable">
+                    <div class="question-mark" id="qm1">?</div>
+                    <div class="question-mark" id="qm2">?</div>
+                    <div class="question-mark" id="qm3">?</div>
+                    <div class="question-mark" id="qm4">?</div>
+                    <div class="question-mark" id="qm5">?</div>
+                    <div class="question-mark" id="qm6">?</div>
                     </div>
                 </div>
                 <div class="col-md-6 d-flex align-items-center justify-content-center" id="second-column">
@@ -40,7 +46,7 @@
 
                         <div class="form-group mb-4">
                             <div class="row">
-                                {{ form_widget(form.content, { 'attr': {'class': form.content.vars.errors is empty ? 'textarea-field' : 'input-field error'} }) }}
+                                {{ form_widget(form.content, { 'attr': {'class': form.content.vars.errors is empty ? 'textarea-field' : 'textarea-field error'} }) }}
                             </div>
                         </div>
 
