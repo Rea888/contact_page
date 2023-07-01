@@ -36,9 +36,9 @@ class Customer
     #[Assert\NotBlank(message: 'Hiba! Kérjük töltsd ki az összes mezőt.')]
     #[Assert\Length(
         min: 10,
-        max: 5000,
+        max: 500,
         minMessage: "Hiba! Üzenet szövege minimum 10 karakter",
-        maxMessage: "Hiba! Üzenet szövege maximum 5000 karakter"
+        maxMessage: "Hiba! Üzenet szövege maximum 500 karakter"
     )]
     private ?string $content = null;
 

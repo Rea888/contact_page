@@ -10,15 +10,16 @@ body {
 
 #home-contact {
     background: #ffffff;
-    border-radius: 10px;
+    border-radius: 5px;
     height: 700px;
     width: 1150px;
-    box-shadow: 2vh 2vh #a30c64;
+    box-shadow: 2px 2px 2vh 2vh rgba(150, 12, 100, 0.6);
 }
 
 .full-vh {
     height: 100vh;
 }
+
 #background-img {
     object-fit: cover;
     width: 100%;
@@ -55,10 +56,11 @@ body {
 }
 
 .input-field, .textarea-field {
-    border-radius: 30px;
-    background-color:#e6e6e6;
-    border:#e6e6e6;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    border: #e6e6e6;
     padding-left: 25px;
+    font-family: Monsterrat-light;
 }
 
 .input-field {
@@ -75,14 +77,28 @@ body {
     background-image: url('../img/exclamationmark.png');
     background-repeat: no-repeat;
     background-position: right center;
-    background-position-x: calc(100% - 4px);
+    background-position-x: calc(100% - 6px);
+}
+
+.text-counter {
+    position: relative;
+    right: 0;
+    text-align: right;
+    color: #666;
 }
 
 
+
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(0,123,255,0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(0,123,255,0); }
-    100% { box-shadow: 0 0 0 0 rgba(0,123,255,0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+    }
 }
 
 .input-field:focus {
@@ -99,30 +115,31 @@ body {
 .send {
     height: 60px;
     background: #1f42e0;
-    border-radius: 30px;
+    border-radius: 5px;
     color: white;
     transition: background 0.3s;
-    border: #ff1491 ;
+    border: #ff1491;
 }
-.send:hover{
+
+.send:hover {
     background: #a30c64;
     opacity: 80%;
 }
 
-#success{
- background: #1f42e0;
+#success {
+    background: #1f42e0;
     color: white;
     width: 900px;
-    border-radius: 30px;
+    border-radius: 5px;
     text-align: center;
 }
 
-#error{
-    background: #a30c64 ;
+#error {
+    background: #a30c64;
     opacity: 80%;
     color: white;
     width: 600px;
-    border-radius: 30px;
+    border-radius: 5px;
     text-align: center;
 }
 
