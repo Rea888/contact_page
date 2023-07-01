@@ -1,43 +1,148 @@
+body {
+    background: url('../img/big-bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    font-family: Monsterrat;
+}
 
-.name-label,
-.email-label,
-.content-label {
-    margin-bottom: 1vh;
-}
-#home-contact{
-    background: #c39532;
+
+#home-contact {
+    background: #ffffff;
+    border-radius: 10px;
+    height: 700px;
+    width: 1150px;
+    box-shadow: 2vh 2vh #a30c64;
+
+
 }
 
-#head-line{
-    background: #555555;
-    height: 10vh;
-    color: #c39532;
+.full-vh {
+    height: 100vh;
 }
-#first-column{
+
+#background-img {
+    object-fit: cover;
+    width: 50%;
+    height: 50%;
+    background: white;
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+}
+
+#first-column {
     padding: 0;
     margin: 0;
 }
 
-#background-img {
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
-    background: #2f302a;
+#second-column {
+    padding-right: 11vw;
+    display: block;
+    margin-top: 5vh;
 }
+
+.input-field {
+    height: 50px;
+    border-radius: 30px;
+    background-color:#e6e6e6;
+    border:#e6e6e6;
+    padding-left: 25px;
+}
+
+
+.input-field.error {
+    border-radius: 30px;
+    background-color: #e6e6e6;
+    padding-left: 25px;
+}
+
 
 input.error {
-    background: url('../img/exclamationmark.png') no-repeat right center;
+    background: url('../img/exclamationmark.png') no-repeat calc(100% - 10px) center;
+
 }
+
+.textarea-field {
+    height: 150px;
+    border-radius: 30px;
+    background-color: #e6e6e6;
+    border: #e6e6e6;
+    padding-left: 25px;
+}
+
 textarea.error {
-    background: url('../img/exclamationmark.png') no-repeat right center;
+    background: url('../img/exclamationmark.png') no-repeat calc(100% - 10px) center;
+    height: 150px;
+
 }
 
-.footer-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 90px;
-    background-color: #555555;
+.send {
+    height: 60px;
+    background: #1f42e0;
+    border-radius: 30px;
+    color: white;
+    transition: background 0.3s;
+    border: #ff1491 ;
+    text-shadow: 0.1em 0.1em 0.1em black,
+    -0.1em -0.1em 0.1em black,
+    0.1em -0.1em 0.1em black,
+    -0.1em 0.1em 0.1em black;
+    font-family: Monsterrat;
+}
+.send:hover{
+    background: #a30c64;
+    opacity: 80%;
 }
 
+#success{
+ background: #1f42e0;
+    color: white;
+    text-shadow: 0.1em 0.1em 0.1em black,
+    -0.1em -0.1em 0.1em black,
+    0.1em -0.1em 0.1em black,
+    -0.1em 0.1em 0.1em black;
+    font-family: Monsterrat;
+}
+
+#error{
+    background: #a30c64 ;
+    opacity: 80%;
+    color: white;
+    text-shadow: 0.1em 0.1em 0.1em black,
+    -0.1em -0.1em 0.1em black,
+    0.1em -0.1em 0.1em black,
+    -0.1em 0.1em 0.1em black;
+    font-family: Monsterrat;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .full-vh {
+        height: auto;
+    }
+
+    #second-column {
+        padding: 2vh;
+    }
+
+    #home-contact {
+        height: auto;
+    }
+
+}
+
+@media only screen and (max-height: 600px) {
+    .full-vh {
+        height: auto;
+    }
+
+    #home-contact {
+        height: auto;
+    }
+
+    #second-column {
+        padding: 5vh;
+    }
+}
