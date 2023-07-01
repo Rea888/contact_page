@@ -22,8 +22,8 @@ class Customer
     #[Assert\Length(
         min: 3,
         max: 100,
-        minMessage: "Hiba! Név minimum 3 karakter legyen",
-        maxMessage: "Hiba! Név maximum 100 karakter lehet"
+        minMessage: "Hiba! Név minimum 3 karakter legyen.",
+        maxMessage: "Hiba! Név maximum 100 karakter lehet."
     )]
     private ?string $name = null;
 
@@ -38,7 +38,7 @@ class Customer
         min: 10,
         max: 500,
         minMessage: "Hiba! Üzenet szövege minimum 10 karakter legyen",
-        maxMessage: "Hiba! Üzenet szövege maximum 500 karakter lehet"
+        maxMessage: "Hiba! Üzenet szövege maximum 500 karakter lehet."
     )]
     private ?string $content = null;
 
