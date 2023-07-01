@@ -14,8 +14,6 @@ body {
     height: 700px;
     width: 1150px;
     box-shadow: 2vh 2vh #a30c64;
-
-
 }
 
 .full-vh {
@@ -94,12 +92,16 @@ textarea.error {
 #success{
  background: #1f42e0;
     color: white;
+    width: 20px;
 }
 
 #error{
     background: #a30c64 ;
     opacity: 80%;
     color: white;
+    width: 600px;
+    border-radius: 30px;
+
 }
 
 
@@ -114,8 +116,9 @@ textarea.error {
 
     #home-contact {
         height: auto;
+        width: 100vw;
+        margin-bottom: 50px;
     }
-
 }
 
 @media only screen and (max-height: 600px) {
@@ -125,9 +128,10 @@ textarea.error {
 
     #home-contact {
         height: auto;
+        margin-bottom: 50px;
     }
 
     #second-column {
-        padding: 5vh;
+        padding-left: 2vw;
     }
 }
