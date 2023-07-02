@@ -42,13 +42,9 @@ body {
 
 #second-column {
     padding-right: 11vw;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 5vh;
+    display: block;
+    margin-top: 7vh;
 }
-
 
 .input-field, .textarea-field {
     border-radius: 5px;
@@ -75,25 +71,6 @@ body {
     background-position-x: calc(100% - 6px);
 }
 
-.question-mark {
-    position: absolute;
-    display: none;
-    font-size: 30px;
-    font-weight: bold;
-    color: #ff1491;
-}
-
-.text-counter {
-    position: relative;
-    right: 0;
-    text-align: right;
-    color: #666;
-}
-
-.limit-reached {
-    color: red;
-}
-
 @keyframes pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
@@ -114,6 +91,25 @@ body {
 .textarea-field:focus {
     outline: none;
     animation: pulse 1s;
+}
+
+.question-mark {
+    position: absolute;
+    display: none;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff1491;
+}
+
+.text-counter {
+    position: relative;
+    right: 0;
+    text-align: right;
+    color: #666;
+}
+
+.limit-reached {
+    color: #ff1491  ;
 }
 
 .send {
@@ -147,13 +143,13 @@ body {
     text-align: center;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px){
     .full-vh {
         height: auto;
     }
 
-    #second-column {
-        padding-right: 0;
+    #first-column {
+        padding-top: 15px;
     }
 
     #home-contact {
@@ -161,19 +157,33 @@ body {
         width: 100vw;
         margin-bottom: 50px;
     }
+
+    #second-column{
+        padding: 15px;
+        margin-top: 0;
+    }
+
+    .input-field, .textarea-field{
+        width: 100%;
+    }
 }
 
-@media only screen and (max-height: 600px) {
+@media only screen and (max-height: 767px) {
     .full-vh {
         height: auto;
     }
-
     #home-contact {
         height: auto;
+        width: 100vw;
         margin-bottom: 50px;
     }
+    #second-column{
+        padding: 25px;
+    }
 
-    #second-column {
-        padding-left: 2vw;
+    .input-field, .textarea-field{
+        width: 100%;
     }
 }
+
+
