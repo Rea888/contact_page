@@ -86,7 +86,7 @@ ___
 2. Install dependencies
 
    ```composer install```
-3. Update the .env file with your database connection details, such as the host, database name, username, and password.
+3. Create .env file by copy the .env.dist file with your database connection details, such as the host, database name, username, and password.
 
 #### Development in docker
 1. Clone the repository

@@ -8,11 +8,6 @@ services:
     restart: unless-stopped
     env_file:
       - .docker.env
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - mariadb:/var/lib/mysql
 
@@ -22,7 +17,6 @@ services:
     container_name: php
     volumes:
       - ./:/var/www
-      - ./var:/var/www/var
     depends_on:
       - database
 
