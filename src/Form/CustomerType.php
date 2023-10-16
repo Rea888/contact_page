@@ -19,7 +19,7 @@ class CustomerType extends AbstractType
             ->add('name', TextType::class, array(
                 'required' => false,
                 'attr' => array(
-                    'placeholder' => ' Név',
+                    'placeholder' => ' Name',
                 ),
             ))
             ->add('email', EmailType::class, array(
@@ -31,12 +31,12 @@ class CustomerType extends AbstractType
             ->add('content', TextareaType::class, array(
                 'required' => false,
                 'attr' => array(
-                    'placeholder' => 'Üzenet szövege',
+                    'placeholder' => 'Message',
                     'style' => 'padding-top:10px;',
                 ),
             ))
             ->add('send', SubmitType::class, array(
-                'label' => 'Küldés'
+                'label' => 'Send'
             ));
     }
 

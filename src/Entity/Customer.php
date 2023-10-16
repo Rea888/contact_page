@@ -18,27 +18,27 @@ class Customer
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: 'Hiba! Kérjük töltsd ki az összes mezőt!')]
+    #[Assert\NotBlank(message: 'Error! Please fill out all the fields!')]
     #[Assert\Length(
         min: 3,
         max: 100,
-        minMessage: "Hiba! Név minimum 3 karakter legyen!",
-        maxMessage: "Hiba! Név maximum 100 karakter lehet!"
+        minMessage: "Error! Name should be at least 3 characters!",
+        maxMessage: "Error! Name can be up to 100 characters!"
     )]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\Email(message: 'Hiba! Nem valid e-mail cím!')]
-    #[Assert\NotBlank(message: 'Hiba! Kérjük töltsd ki az összes mezőt!')]
+    #[Assert\Email(message: 'Error! Invalid email address!')]
+    #[Assert\NotBlank(message: 'Error! Please fill out all the fields!')]
     private ?string $email = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Assert\NotBlank(message: 'Hiba! Kérjük töltsd ki az összes mezőt!')]
+    #[Assert\NotBlank(message: 'Error! Please fill out all the fields!')]
     #[Assert\Length(
         min: 10,
         max: 500,
-        minMessage: "Hiba! Üzenet szövege minimum 10 karakter legyen!",
-        maxMessage: "Hiba! Üzenet szövege maximum 500 karakter lehet!"
+        minMessage: "Error! Message should be at least 10 characters!",
+        maxMessage: "Error! Message can be up to 500 characters!"
     )]
     private ?string $content = null;
 
