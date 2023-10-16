@@ -37,7 +37,7 @@ class CustomerController extends AbstractController
                 $customer = $form->getData();
 
                 $this->customerRepository->save($customer, true);
-                $this->addFlash('success', 'Köszönjük szépen a kérdésedet. Válaszunkkal hamarosan keresünk a megadott e-mail címen.');
+                $this->addFlash('success', 'Thank you very much for your question. We will contact you soon with our answer at the provided email address.');
                 return $this->redirectToRoute('app_customer');
             } else {
                 $this->addFlash('form_submitted', true);
